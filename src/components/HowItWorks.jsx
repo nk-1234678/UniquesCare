@@ -1,38 +1,176 @@
-import React from 'react'
+import React from "react"
+import { QrCode, FileEdit, UserCheck, Wrench, CheckCircle2 } from "lucide-react"
 
 const STEPS = [
-{ n: "01", title: "Scan QR Code", desc: "Each lab has a unique QR sticker. Scan it with your phone camera." },
-{ n: "02", title: "Fill the Form", desc: "Choose issue category, urgency level, add a description and optional photo." },
-{ n: "03", title: "Ticket Generated", desc: "A unique ticket ID is auto-created. Admin is notified instantly." },
-{ n: "04", title: "Staff Assigned", desc: "Admin assigns the complaint to the right maintenance staff member." },
-{ n: "05", title: "Work in Progress", desc: "Staff updates status as they work. You can track progress live." },
-{ n: "06", title: "Resolved", desc: "Issue marked resolved with notes. Archived for analytics automatically." },
-];
+  {
+    n: "01",
+    icon: QrCode,
+    title: "Scan Equipment QR",
+    desc: "Simply scan the unique QR code attached to any laboratory equipment using your smartphone camera"
+  },
+  {
+    n: "02",
+    icon: FileEdit,
+    title: "Report the Issue",
+    desc: "Fill out a quick digital form describing the maintenance issue. Add photos and priority level."
+  },
+  {
+    n: "03",
+    icon: UserCheck,
+    title: "Auto-Assign & Track",
+    desc: "The system automatically routes the ticket to the right technician and tracks progress in real-time."
+  },
+  {
+    n: "04",
+    icon: Wrench,
+    title: "Resolve & Review",
+    desc: "Technician resolves the issue, marks it complete, and the system logs everything for audit trails."
+  },
+ 
+]
 
 const HowItWorks = () => {
-return (
-    <div>
+  return (
+    <section
+      id="how-it-works"
+      style={{
+        background: "#fff",
+        padding: "100px 0",
+        borderBottom: "1.5px solid #E0E0E0"
+      }}
+    >
+      <div className="wrap" style={{display:"flex", flexDirection:"column"}}>
 
-        {/* HOW IT WORKS */}
-    <section id="how-it-works" style={{ background: "#fff", borderBottom: "1.5px solid #E0E0E0" }}>
-    <div className="wrap">
-        <div style={{ marginBottom: 32 }}>
-        <span className="tag">Complaint Lifecycle</span>
-        <h2 style={{ fontSize: 30, fontWeight: 700, marginTop: 12, marginBottom: 6 }}>From scan to resolved in 6 steps.</h2>
+        {/* Header */}
+        <div
+        style={{
+            textAlign: "center",
+            marginBottom: 60,
+            backgroundColor: "",
+            maxWidth: "600px",
+            margin: "0 auto 60px"
+        }}
+        >
+          <span
+            style={{
+              color: "#C0272D",
+              fontWeight: 600,
+              fontSize: 12,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase"
+            }}
+          >
+            How It Works
+          </span>
+
+          <h2
+        style={{
+            fontSize: 40,
+            fontWeight: 700,
+            marginTop: 8
+        }}
+        >
+        Four Simple Steps to  
+        Streamlined Maintenance
+        </h2>
+
+          <p
+            style={{
+              color: "#777",
+              fontSize: 18,
+              marginTop: 8
+            }}
+          >
+            Our intuitive process makes reporting and managing maintenance issues effortless for everyone.
+          </p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
-        {STEPS.map((s, i) => (
-            <div key={i} className="box hover-box" style={{ padding: 22, borderLeft: `4px solid ${i%2===0?"#C0272D":"#3D4F5C"}` }}>
-            <div className="mono" style={{ fontSize: 11, color: "#C0272D", fontWeight: 600, marginBottom: 8 }}>{s.n}</div>
-            <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 6 }}>{s.title}</div>
-            <div style={{ fontSize: 13, color: "#666", lineHeight: 1.6 }}>{s.desc}</div>
-            </div>
-        ))}
+
+        {/* Steps Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+            gap: 28
+          }}
+        >
+          {STEPS.map((s, i) => {
+            const Icon = s.icon
+
+            return (
+              <div
+                key={i}
+                style={{
+                  position: "relative",
+                  background: "#fff",
+                  border: "1.5px solid #E0E0E0",
+                  borderRadius: 14,
+                  padding: 26,
+                  transition: "all .25s"
+                }}
+                className="hover-box"
+              >
+
+                {/* Step Number */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: -12,
+                    left: 22,
+                    background: "#C0272D",
+                    color: "#fff",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    padding: "4px 10px",
+                    borderRadius: 20
+                  }}
+                >
+                  {s.n}
+                </div>
+
+                {/* Icon */}
+                <div
+                  style={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: 12,
+                    background: "#FFF5F5",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: 18
+                  }}
+                >
+                  <Icon size={28} color="#C0272D" />
+                </div>
+
+                {/* Title */}
+                <div
+                  style={{
+                    fontSize: 18,
+                    fontWeight: 700,
+                    marginBottom: 8
+                  }}
+                >
+                  {s.title}
+                </div>
+
+                {/* Description */}
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: "#666",
+                    lineHeight: 1.6
+                  }}
+                >
+                  {s.desc}
+                </div>
+              </div>
+            )
+          })}
         </div>
-    </div>
+      </div>
     </section>
-</div>
-)
+  )
 }
 
 export default HowItWorks

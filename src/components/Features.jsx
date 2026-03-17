@@ -70,14 +70,15 @@ return (
         }
     `}</style>
 
-    <div className="wrap">
+    <div className="wrap" style={{backgroundColor:"",padding: "0 104px"}}>
 
         {/* Header */}
         <div
             style={{
             margin: "0 auto 60px auto",
             maxWidth: 650,
-            textAlign: "center"
+            textAlign: "center",
+            
             }}
         >
         <span className="tag">Platform Features</span>

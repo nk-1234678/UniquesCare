@@ -6,7 +6,7 @@ return (
 
     {/* CTA */}
     <section style={{ background: "#1A1A1A", padding: "60px 0" }}>
-    <div className="wrap">
+    <div className="wrap"  style={{padding: "0 104px"}}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 32, alignItems: "center" }}>
         <div>
             <span className="tag tag-red" style={{ borderColor: "#C0272D", color: "#C0272D", background: "rgba(192,39,45,0.1)" }}>Ready to Deploy</span>
@@ -18,7 +18,7 @@ return (
             </p>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <button className="btn-red">Request Access →</button>
+            <button style={{ background: "transparent", color: "#888", border: "1.5px solid #444", borderRadius: 4, padding: "10px 22px", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Request Access</button>
             <button style={{ background: "transparent", color: "#888", border: "1.5px solid #444", borderRadius: 4, padding: "10px 22px", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>View Docs</button>
         </div>
         </div>

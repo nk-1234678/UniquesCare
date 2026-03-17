@@ -1,5 +1,5 @@
-import React from "react"
-import { QrCode, BarChart3, Bell, Users, Clock, Shield } from "lucide-react"
+import React from "react";
+import { QrCode, BarChart3, Bell, Users, Clock, Shield } from "lucide-react";
 
 const FEATURES = [
 {
@@ -53,22 +53,18 @@ return (
             transition:all .25s ease;
             cursor:pointer;
         }
-
         .feature-box:hover{
             background:#C0272D;
             color:#fff;
             border-color:#C0272D;
             transform:translateY(-6px);
         }
-
         .feature-box:hover .feature-desc{
             color:rgba(255,255,255,.85);
         }
-
         .feature-box:hover .icon-box{
             background:rgba(255,255,255,.2);
         }
-
         .feature-box:hover svg{
         color:#fff;
         }
@@ -108,18 +104,18 @@ return (
         style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
-            gap: 22
+            gap: 28 // increased from 22 to 28
           }}
         >
           {FEATURES.map((f, i) => {
-            const Icon = f.icon
+            const Icon = f.icon;
 
             return (
               <div
                 key={i}
                 className="feature-box"
                 style={{
-                  padding: 24,
+                  padding: 28, // increased from 24
                   borderRadius: 10
                 }}
               >
@@ -134,7 +130,7 @@ return (
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    marginBottom: 16,
+                    marginBottom: 18, // slightly increased
                     transition: "all .25s"
                   }}
                 >
@@ -146,7 +142,7 @@ return (
                   style={{
                     fontWeight: 700,
                     fontSize: 16,
-                    marginBottom: 8
+                    marginBottom: 10
                   }}
                 >
                   {f.title}
@@ -165,13 +161,12 @@ return (
                   {f.desc}
                 </div>
               </div>
-            )
+            );
           })}
         </div>
-
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

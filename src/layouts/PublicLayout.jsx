@@ -4,17 +4,19 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const PublicLayout = () => {
-return (
-<>
-    <Navbar />
+  return (
+    <>
+      <Navbar />
 
-    <main style={{ minHeight: "80vh" }}>
-    <Outlet />
-    </main>
+      <main >
+        <div>
+          <Outlet />
+        </div>
+      </main>
 
-    <Footer />
-</>
-);
+      <Footer />
+    </>
+  );
 };
 
 export default PublicLayout;

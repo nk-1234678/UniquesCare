@@ -39,7 +39,7 @@ const HowItWorks = () => {
         borderBottom: "1.5px solid #E0E0E0"
       }}
     >
-      <div className="wrap" style={{display:"flex", flexDirection:"column"}}>
+      <div className="wrap" style={{display:"flex", padding: "0 104px",flexDirection:"column"}}>
 
         {/* Header */}
         <div

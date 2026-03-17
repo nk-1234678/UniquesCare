@@ -13,7 +13,6 @@ const PublicRoutes = [
       { path: "", element: <LandingPage /> }, 
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage/> },
-      
     ],
   },
 ];

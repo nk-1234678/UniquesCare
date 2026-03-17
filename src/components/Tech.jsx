@@ -99,7 +99,7 @@ export default function IntegrationSection() {
 
   return (
     <section style={{
-      background: "#ffffff",
+      background: "",
       padding: "80px 0 64px",
       borderTop: "1.5px solid #E4E8EC",
       borderBottom: "1.5px solid #E4E8EC",
@@ -361,7 +361,7 @@ function AnimatedStats() {
         marginTop: 0,
         paddingTop: 0,
         borderTop: "1.5px solid #E4E8EC",
-        background: "#fff",
+        background: "",
         borderRadius: "0 0 8px 8px",
         overflow: "hidden",
       }}

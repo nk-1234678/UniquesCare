@@ -4,6 +4,7 @@ import PublicLayout from "../layouts/PublicLayout";
 import LandingPage from "../pages/LandingPage";
 import ContactPage from "../pages/ContactPage";
 import AboutPage from "../pages/AboutPage";
+import SignUp from "../pages/SignupPage";
 
 const PublicRoutes = [
   {
@@ -13,6 +14,7 @@ const PublicRoutes = [
       { path: "", element: <LandingPage /> }, 
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage/> },
+      { path: "signup", element: <SignUp/> },
       
     ],
   },

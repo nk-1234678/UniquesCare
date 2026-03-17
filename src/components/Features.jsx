@@ -1,38 +1,14 @@
-import React from "react"
-import { QrCode, BarChart3, Bell, Users, Clock, Shield } from "lucide-react"
+import React from "react";
+import { QrCode, BarChart3, Bell, Users, Clock, Shield } from "lucide-react";
 
 const FEATURES = [
-  {
-    icon: QrCode,
-    title: "QR-Based Reporting",
-    desc: "Scan a lab QR code and submit a complaint in under 2 minutes — no manual selection needed."
-  },
-  {
-    icon: Users,
-    title: "Role-Based Access",
-    desc: "Students, Lab Assistants, Maintenance Staff, and Admins each get their own tailored view."
-  },
-  {
-    icon: Clock,
-    title: "Real-Time Tracking",
-    desc: "Follow every complaint from Pending → Assigned → In Progress → Resolved, live."
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics Dashboard",
-    desc: "Monthly reports, resolution trends, category breakdowns, and staff performance scores."
-  },
-  {
-    icon: Shield,
-    title: "Secure Cloud Storage",
-    desc: "All complaints and images stored securely in MongoDB Atlas and Cloudinary CDN."
-  },
-  {
-    icon: Bell,
-    title: "Smart Notifications",
-    desc: "Automated alerts to staff when complaints are reported, assigned, or resolved."
-  }
-]
+  { icon: QrCode, title: "QR-Based Reporting", desc: "Scan a lab QR code and submit a complaint in under 2 minutes — no manual selection needed." },
+  { icon: Users, title: "Role-Based Access", desc: "Students, Lab Assistants, Maintenance Staff, and Admins each get their own tailored view." },
+  { icon: Clock, title: "Real-Time Tracking", desc: "Follow every complaint from Pending → Assigned → In Progress → Resolved, live." },
+  { icon: BarChart3, title: "Analytics Dashboard", desc: "Monthly reports, resolution trends, category breakdowns, and staff performance scores." },
+  { icon: Shield, title: "Secure Cloud Storage", desc: "All complaints and images stored securely in MongoDB Atlas and Cloudinary CDN." },
+  { icon: Bell, title: "Smart Notifications", desc: "Automated alerts to staff when complaints are reported, assigned, or resolved." }
+];
 
 const Features = () => {
   return (
@@ -41,7 +17,7 @@ const Features = () => {
       style={{
         background: "#F5F5F5",
         borderBottom: "1.5px solid #E0E0E0",
-        padding: "90px 0"
+        padding: "120px 0" // increased from 90px to 120px
       }}
     >
 
@@ -53,33 +29,28 @@ const Features = () => {
           transition:all .25s ease;
           cursor:pointer;
         }
-
         .feature-box:hover{
           background:#C0272D;
           color:#fff;
           border-color:#C0272D;
           transform:translateY(-6px);
         }
-
         .feature-box:hover .feature-desc{
           color:rgba(255,255,255,.85);
         }
-
         .feature-box:hover .icon-box{
           background:rgba(255,255,255,.2);
         }
-
         .feature-box:hover svg{
           color:#fff;
         }
       `}</style>
 
-      <div className="wrap">
-
+      <div className="wrap" style={{ padding: "0 104px", backgroundColor:""}}>
         {/* Header */}
         <div
           style={{
-            margin: "0 auto 60px auto",
+            margin: "0 auto 80px auto", // increased margin-bottom from 60px to 80px
             maxWidth: 650,
             textAlign: "center"
           }}
@@ -91,13 +62,13 @@ const Features = () => {
               fontSize: 38,
               fontWeight: 700,
               marginTop: 12,
-              marginBottom: 8
+              marginBottom: 12 // slightly increased
             }}
           >
             Everything You Need for Efficient Maintenance
           </h2>
 
-          <p style={{ color: "#666", fontSize: 18 }}>
+          <p style={{ color: "#666", fontSize: 18, lineHeight: 1.6 }}>
             Our platform provides a complete suite of tools designed specifically for
             institutional laboratory maintenance management.
           </p>
@@ -108,18 +79,18 @@ const Features = () => {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
-            gap: 22
+            gap: 28 // increased from 22 to 28
           }}
         >
           {FEATURES.map((f, i) => {
-            const Icon = f.icon
+            const Icon = f.icon;
 
             return (
               <div
                 key={i}
                 className="feature-box"
                 style={{
-                  padding: 24,
+                  padding: 28, // increased from 24
                   borderRadius: 10
                 }}
               >
@@ -134,7 +105,7 @@ const Features = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    marginBottom: 16,
+                    marginBottom: 18, // slightly increased
                     transition: "all .25s"
                   }}
                 >
@@ -146,7 +117,7 @@ const Features = () => {
                   style={{
                     fontWeight: 700,
                     fontSize: 16,
-                    marginBottom: 8
+                    marginBottom: 10
                   }}
                 >
                   {f.title}
@@ -165,13 +136,12 @@ const Features = () => {
                   {f.desc}
                 </div>
               </div>
-            )
+            );
           })}
         </div>
-
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

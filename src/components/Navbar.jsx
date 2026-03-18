@@ -80,9 +80,22 @@ function Navbar() {
               Sign In
             </button>
             <Link to="/signup">
-              <button className="btn-red" style={{ padding: "7px 16px" }}>
-                Get Started
-              </button>
+              <button
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "#C0272D",
+                color: "#fff",
+                fontWeight: 600,
+                fontSize: 14,
+                border: "none",
+                borderRadius: 6,
+                cursor: "pointer",
+                transition: "all 0.2s ease"
+              }}
+              
+            >
+              Get Started
+            </button>
             </Link>
           </div>
         </div>

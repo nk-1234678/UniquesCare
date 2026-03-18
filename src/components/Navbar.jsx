@@ -3,104 +3,163 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <>
-      <nav
+    <nav
+      style={{
+        backgroundColor: "#ffffff",
+        borderBottom: "1px solid #e5e7eb", // softer gray #e5e7eb
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        boxShadow: "0 1px 3px rgba(0,0,0,0.05)", // subtle modern shadow
+        transition: "all 0.2s ease",
+      }}
+    >
+      <div
         style={{
-          background: "#fff",
-          borderBottom: "1.5px solid #E0E0E0",
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
+          maxWidth: "1400px",           // wider container like modern sites
+          margin: "0 auto",
+          padding: "0 24px",            // better horizontal padding
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: "72px",               // taller for better touch/click area
         }}
       >
-        {/* Container wrapper */}
+        {/* Logo + tagline */}
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div
+              style={{
+                width: 42,
+                height: 42,
+                backgroundColor: "#C0272D",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 800,
+                color: "#ffffff",
+                fontSize: "18px",
+                boxShadow: "0 2px 6px rgba(192,39,45,0.25)", // subtle glow
+              }}
+            >
+              UC
+            </div>
+
+            <div>
+              <div
+                style={{
+                  fontSize: "20px",
+                  fontWeight: 700,
+                  color: "#111827", // dark gray-black
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                UNIQUE <span style={{ color: "#C0272D" }}>CARE</span>
+              </div>
+              <div
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  color: "#6b7280", // gray-500
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  marginTop: "1px",
+                }}
+              >
+                Smart Lab Maintenance
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        {/* Navigation links */}
         <div
-          className="max-w-6xl mx-auto px-6"
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
-            height: 64, // thoda height increase kiya
+            gap: "32px", // more generous spacing
           }}
         >
-          {/* Logo */}
-          <Link to="/">
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div
-                style={{
-                  width: 36,
-                  height: 36,
-                  background: "#C0272D",
-                  borderRadius: 4,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <span
-                  className="mono"
-                  style={{ color: "#fff", fontSize: 12, fontWeight: 700 }}
-                >
-                  UC
-                </span>
-              </div>
-              <div>
-                <div style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.1 }}>
-                  UNIQUE <span style={{ color: "#C0272D" }}>CARE</span>
-                </div>
-                <div
-                  style={{
-                    fontSize: 10,
-                    color: "#aaa",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Smart Lab Maintenance
-                </div>
-              </div>
-            </div>
-          </Link>
-
-          {/* Nav links */}
-          <div style={{ display: "flex", gap: 28 }}>
-            {[
-              { name: "About Us", path: "/about" },
-              { name: "Contact", path: "/contact" },
-            ].map((item) => (
-              <Link key={item.name} to={item.path} className="nav-a">
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Buttons */}
-          <div style={{ display: "flex", gap: 8 }}>
-            <button className="btn-outline" style={{ padding: "7px 16px" }}>
-              Sign In
-            </button>
-            <Link to="/signup">
-              <button
+          {[
+            { name: "About Us", path: "/about" },
+            { name: "Services", path: "/services" }, // ← added suggestion
+            { name: "Features", path: "/features" }, // ← optional, common in such sites
+            { name: "Contact", path: "/contact" },
+          ].map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
               style={{
-                padding: "10px 20px",
-                backgroundColor: "#C0272D",
-                color: "#fff",
-                fontWeight: 600,
-                fontSize: 14,
-                border: "none",
-                borderRadius: 6,
-                cursor: "pointer",
-                transition: "all 0.2s ease"
+                color: "#374151", // gray-700
+                fontSize: "15px",
+                fontWeight: 500,
+                textDecoration: "none",
+                transition: "color 0.2s ease",
               }}
-              
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#C0272D")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#374151")}
             >
-              Get Started
-            </button>
+              {item.name}
             </Link>
-          </div>
+          ))}
         </div>
-      </nav>
-    </>
+
+        {/* Auth buttons */}
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <button
+            className="btn-outline"
+            style={{
+              padding: "8px 20px",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "#374151",
+              backgroundColor: "transparent",
+              border: "1px solid #d1d5db", // gray-300
+              borderRadius: "6px",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#f3f4f6";
+              e.currentTarget.style.borderColor = "#9ca3af";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+              e.currentTarget.style.borderColor = "#d1d5db";
+            }}
+          >
+            Sign In
+          </button>
+
+          <button
+            className="btn-red"
+            style={{
+              padding: "8px 20px",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "#ffffff",
+              backgroundColor: "#C0272D",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px rgba(192,39,45,0.2)",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#e53e3e";
+              e.currentTarget.style.transform = "translateY(-1px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#C0272D";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </nav>
   );
 }
 

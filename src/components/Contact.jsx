@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 const faqs = [
   {
     question: "What makes UNIQUE CARE different?",
@@ -110,7 +108,7 @@ function FaqItem({ question, answer, defaultOpen = false }) {
             justifyContent: "center",
             background: open ? "#C0272D" : "#F5F5F5",
             border: open ? "none" : "1.5px solid #E0E0E0",
-            transition: "background 0.2s",
+            transition: "all 0.2s",
           }}
         >
           <svg
@@ -188,22 +186,28 @@ export default function Contact() {
 
   return (
     <>
-
       {/* ── FORM + INFO ── */}
-      <section style={{ padding: "56px 0" }} className="wrap">
-        <div className="wrap" >
+      <section style={{ padding: "56px 0" }}>
+        <div
+          className="wrap"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gap: 40,
+              maxWidth: 1000,
+              width: "100%",
               alignItems: "start",
             }}
             className="contact-grid"
           >
             {/* LEFT — Form */}
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {/* First + Last */}
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: "flex", flexDirection: "column", gap: 14 }}
+            >
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <Field label="First Name *">
                   <input
@@ -225,7 +229,6 @@ export default function Contact() {
                 </Field>
               </div>
 
-              {/* Email + Phone */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <Field label="Your Email">
                   <input
@@ -247,7 +250,6 @@ export default function Contact() {
                 </Field>
               </div>
 
-              {/* No. of Employees */}
               <Field label="No. of Employees">
                 <select
                   defaultValue=""
@@ -271,7 +273,6 @@ export default function Contact() {
                 </select>
               </Field>
 
-              {/* Country */}
               <Field label="Country / Region *">
                 <input
                   type="text"
@@ -282,17 +283,19 @@ export default function Contact() {
                 />
               </Field>
 
-              {/* Submit */}
               <button
                 type="submit"
-                className="btn-red"
                 style={{
                   marginTop: 4,
                   padding: "12px 24px",
                   fontSize: 14,
                   background: submitted ? "#2a7a2a" : "#C0272D",
-                  borderColor: submitted ? "#2a7a2a" : "#C0272D",
-                  transition: "background 0.3s, border-color 0.3s",
+                  border: "none",
+                  color: "#fff",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  borderRadius: 6,
+                  transition: "all 0.3s",
                   letterSpacing: "0.04em",
                 }}
               >
@@ -300,9 +303,9 @@ export default function Contact() {
               </button>
             </form>
 
-            {/* RIGHT — Get in Touch */}
+            {/* RIGHT — Contact Info */}
             <div>
-              <span className="tag tag-red" style={{ marginBottom: 16, display: "inline-block" }}>
+              <span style={{ marginBottom: 16, display: "inline-block", fontSize: 11, fontWeight: 600, color: "#C0272D" }}>
                 Contact Us
               </span>
               <h2 style={{ fontSize: 34, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.2, marginBottom: 10 }}>
@@ -312,25 +315,21 @@ export default function Contact() {
                 Reach out and we'll connect within 24 hours to discuss your requirements and next steps.
               </p>
 
-              {/* Info list */}
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                 {contactInfoItems.map((item, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-                    {/* Icon */}
-                    <div
-                      style={{
-                        width: 38,
-                        height: 38,
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                        background: "#FFF5F5",
-                        border: "1.5px solid rgba(192,39,45,0.2)",
-                        color: "#C0272D",
-                      }}
-                    >
+                    <div style={{
+                      width: 38,
+                      height: 38,
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      background: "#FFF5F5",
+                      border: "1.5px solid rgba(192,39,45,0.2)",
+                      color: "#C0272D",
+                    }}>
                       {item.icon}
                     </div>
                     <div>
@@ -338,9 +337,7 @@ export default function Contact() {
                         {item.label}
                       </p>
                       <p style={{ fontSize: 13.5, fontWeight: 600, color: "#C0272D" }}>{item.value}</p>
-                      {item.sub && (
-                        <p style={{ fontSize: 12, color: "#aaa", marginTop: 2 }}>{item.sub}</p>
-                      )}
+                      {item.sub && <p style={{ fontSize: 12, color: "#aaa", marginTop: 2 }}>{item.sub}</p>}
                     </div>
                   </div>
                 ))}
@@ -350,29 +347,20 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ── FAQ DIVIDER ── */}
+      {/* ── FAQ SECTION ── */}
       <div className="wrap">
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 48 }}>
-          <hr className="divider" style={{ flex: 1 }} />
+          <hr style={{ flex: 1, border: "1px solid #E0E0E0" }} />
           <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "#ccc" }}>
             FAQ
           </span>
-          <hr className="divider" style={{ flex: 1 }} />
+          <hr style={{ flex: 1, border: "1px solid #E0E0E0" }} />
         </div>
       </div>
 
-      {/* ── FAQ ── */}
-      <section style={{ padding: "0 0 80px" }} className="wrap">
+      <section style={{ padding: "0 0 80px" }}>
         <div className="wrap">
-          <h2
-            style={{
-              fontSize: 34,
-              fontWeight: 700,
-              color: "#1A1A1A",
-              textAlign: "center",
-              marginBottom: 32,
-            }}
-          >
+          <h2 style={{ fontSize: 34, fontWeight: 700, color: "#1A1A1A", textAlign: "center", marginBottom: 32 }}>
             General Questions.
           </h2>
 
@@ -384,7 +372,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Responsive styles */}
+      {/* Responsive */}
       <style>{`
         @media (max-width: 768px) {
           .contact-grid {
